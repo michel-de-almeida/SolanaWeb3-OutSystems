@@ -38,6 +38,7 @@ If all the pre-requisites are installed then the following command will generate
 ```
 npx webpack --config webpack.config.js
 ```
+The generated file will appear in the /dist/ folder
 Once generated, import it under the 'Scripts' section of your reactive or mobile app and reference it on the page you need the functionality on. The 'RequireScript' client action can also be used but my slow down the app and use exessive network resources due  to the size of the script. A non-iife approach would have to be taken if you wish to do that effectively. 
 
 Feel free to fork this repo or create a pull request to make changes that you think would benefit the project!
