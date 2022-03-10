@@ -27,8 +27,7 @@ Solflare is my personal preference but Phantom wallet also exists.
 2. Run ``` npm install ``` to download and install all dependencies. 
 
 ## Testing the code
-I would suggest create another file called something like test.ts and referenceing index.ts
-To test the code run 
+I would suggest create another file called something like test.ts and referenceing index.ts to test the code run 
 ```
 ts-node <path-to-test-file>
 ```
