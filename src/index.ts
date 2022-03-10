@@ -95,6 +95,10 @@ class solanaLib {
         );
     }
 
+    static async transferNFT(connection: typeof Connection, fromSecretKey: Uint8Array, toPublicKey: string, tokenAddress: string) {
+        return await this.transferToken(connection, fromSecretKey, toPublicKey, tokenAddress, 1);
+    }
+
     //Create a new token and send it to the provided toPublicKey. The fee payer and the to pubkey can be from the same wallet
     static async createToken(connection: typeof Connection, payerSecretKey: Uint8Array, toPublicKey: string,  numTokensToCreate: number) {
         //The payerWallet will be the wallet paying for the minting fees
@@ -155,7 +159,7 @@ class solanaLib {
         //Remove the creators authourtity to mint new tokens. Since no mint authourity remains on the account, no new tokens can ever be created.
         setAuthority(connection,payerWallet,nftPubkey,payerWallet,AuthorityType.MintTokens,null);
 
-        //Return the nft pubkey so it can be used to send tokens with transferTokens()
+        //Return the nft pubkey so it can be used to send tokens with transferNFT()
         return nftPubkey;
     }    
 }
