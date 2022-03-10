@@ -14,12 +14,25 @@ Once the webpack is generated, allows you to
  - Create an NFT on the Solana blockchain
  All from within the OutSystems platform.
  
+ ## Solana documentation used
+ https://docs.solana.com/developing/clients/jsonrpc-api
+ https://docs.solana.com/developing/clients/javascript-api
+ https://docs.solana.com/cluster/rpc-endpoints (devnet, testnet & mainnet-beta)
+ 
 ## Online Wallet suggestions
 Solflare is my personal preference but Phantom wallet also exists.
 
 ## Pre-requisites needed to generate the webpack
 1. NodeJS & npm - https://nodejs.org/en/download/
 2. ts-node npm package - https://www.npmjs.com/package/ts-node. ts-node is used for testing the code.
+3. Run ``` npm install ``` to download and install all dependencies. 
+
+## Testing the code
+I would suggest create another file called something like test.ts and referenceing index.ts
+To test the code run 
+```
+ts-node <path-to-test-file>
+```
 
 ## How to generate the webpack
 If all the pre-requisites are installed then the following command will generate the webpack:
