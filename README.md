@@ -24,8 +24,7 @@ Solflare is my personal preference but Phantom wallet also exists.
 
 ## Pre-requisites needed to generate the webpack
 1. NodeJS & npm - https://nodejs.org/en/download/
-2. ts-node npm package - https://www.npmjs.com/package/ts-node. ts-node is used for testing the code.
-3. Run ``` npm install ``` to download and install all dependencies. 
+2. Run ``` npm install ``` to download and install all dependencies. 
 
 ## Testing the code
 I would suggest create another file called something like test.ts and referenceing index.ts
