@@ -15,9 +15,9 @@ Once the webpack is generated, allows you to
  All from within the OutSystems platform.
  
  ## Solana documentation used
- https://docs.solana.com/developing/clients/jsonrpc-api
- https://docs.solana.com/developing/clients/javascript-api
- https://docs.solana.com/cluster/rpc-endpoints (devnet, testnet & mainnet-beta)
+  - https://docs.solana.com/developing/clients/jsonrpc-api
+  - https://docs.solana.com/developing/clients/javascript-api
+  - https://docs.solana.com/cluster/rpc-endpoints (devnet, testnet & mainnet-beta)
  
 ## Online Wallet suggestions
 Solflare is my personal preference but Phantom wallet also exists.
