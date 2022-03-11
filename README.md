@@ -1,5 +1,5 @@
 # SolanaWeb3-OutSystems
-This repo is used to provide the needed source code to generate a webpack based off JavaScript and TypeScript code. The code generates an iife (Immediately Invoked Function Expression) that can be referenced in the OutSystems platform Code is based off the @solana/web3.js and @solana/spl-token packages.
+This repo is used to provide the needed source code to generate a webpack based off JavaScript and TypeScript code. The code generates an iife (Immediately Invoked Function Expression) that can be referenced in the OutSystems platform. Code is based off the @solana/web3.js and @solana/spl-token packages.
 
 ## What is a webpack?
 Webpack is a module bundler. Its main purpose is to bundle JavaScript files for usage in a browser. This means we can take code from npm packages and enable its usage in OutSystems reactive or mobile apps (traditional web not tested). 
