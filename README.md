@@ -12,6 +12,7 @@ Once the webpack is generated, allows you to
  - Transfer Tokens between 2 wallet accounts.
  - Create a Token on the Solana blockchain.
  - Create an NFT on the Solana blockchain
+ 
  All from within the OutSystems platform.
  
  ## Solana documentation used
