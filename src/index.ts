@@ -1,5 +1,5 @@
 const { Keypair, Transaction, SystemProgram, PublicKey, Connection, clusterApiUrl, Cluster, sendAndConfirmTransaction, LAMPORTS_PER_SOL } = require('@solana/web3.js');
-const { getOrCreateAssociatedTokenAccount, createAssociatedTokenAccount, getAccount, transfer, createMint, mintTo, setAuthority, AuthorityType, TokenAccountNotFoundError, TokenInvalidAccountOwnerError, TokenInvalidAccountSizeError  } = require('@solana/spl-token'); 
+const { getOrCreateAssociatedTokenAccount, getAssociatedTokenAddress, getAccount, transfer, createMint, mintTo, setAuthority, AuthorityType } = require('@solana/spl-token'); 
  
 class solanaLib {
     static getConnection(cluster: typeof Cluster) {
@@ -33,35 +33,24 @@ class solanaLib {
     }
 
     //Returns the info of the provided token account pubkey
-    static async getTokenAccountInfo(connection: typeof Connection, accountPublicKey: string) { 
-        let res;
-        try {
-            const info = await getAccount(connection,new PublicKey(accountPublicKey));
-            res = {
-                address: info.address.toString(),
-                mint: info.mint.toString(),
-                owner: info.owner.toString(),
-                lamports: parseInt(info.amount),
-                delegate: info.delegate,
-                delegatedAmount: parseInt(info.delegatedAmount),
-                isInitialized: info.isInitialized,
-                isFrozen: info.isFrozen,
-                isNative: info.isNative,
-                rentExemptReserve: info.rentExemptReserve,
-                closeAuthority: info.closeAuthority
-              }
-        } catch (e) {
-            if (e instanceof TokenAccountNotFoundError) {
-                res = "Account is not found at the expected address. Please ensure the public key is a token account and not a wallet.";
-            } else if (e instanceof TokenInvalidAccountOwnerError) {
-                res = "Account is not owned by the expected token program. Please ensure the public key is a token account and not a wallet."
-            } else if (e instanceof TokenInvalidAccountSizeError) {
-                res = "The byte length of an program state account doesn't match the expected size."
-            } else {
-                res = "An Unknown error occurred"
-            }
+    static async getTokenAccountInfo(connection: typeof Connection, walletPublicKey: string, tokenAddress: string) { 
+        const addressPubkey = await getAssociatedTokenAddress(new PublicKey(tokenAddress),new PublicKey(walletPublicKey));
+        const info = await getAccount(connection,addressPubkey);
+
+        return {
+            address: info.address.toString(),
+            mint: info.mint.toString(),
+            owner: info.owner.toString(),
+            lamports: parseInt(info.amount),
+            delegate: info.delegate,
+            delegatedAmount: parseInt(info.delegatedAmount),
+            isInitialized: info.isInitialized,
+            isFrozen: info.isFrozen,
+            isNative: info.isNative,
+            rentExemptReserve: info.rentExemptReserve,
+            closeAuthority: info.closeAuthority
         }
-        return res;
+        
     }
 
     //Transfer solana from the provided wallet to the given pubkey
